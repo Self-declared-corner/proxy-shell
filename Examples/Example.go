@@ -27,17 +27,20 @@ func InitLogs() (*zerolog.Logger, error) {
 	err, logger := proxyshell.CreateLog(file) //here you can choose to print logs into a file, or in the console
 	return logger, err
 }
-func CreateConfig(name string) (*os.File, error) {
-	file, err := os.Create(name + ".psCfg")
-	if err != nil {
-		return nil, err
-	}
+func CreateConfig(name string) error {
 	addr, _ := GetIP()
 	config := proxyshell.Config{LocalURL: addr.String(), Version: "1"}
-	return
+	directory, err := os.Getwd()
+	if err != nil {
+		return err
+	}
+	err = config.CreateConfig("config", directory)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 func main() {
-	_, err := InitLogs()
 	if err != nil {
 		panic("Couldn't init logs!")
 	}
