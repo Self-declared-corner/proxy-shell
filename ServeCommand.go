@@ -5,7 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func ServeCommand(group fiber.Group, command Cmd) error {
+func ServeCommand(group fiber.Router, command Cmd) error {
 	group.Get("/", func(ctx *fiber.Ctx) error {
 		buffer, err := json.Marshal(command)
 		if err != nil {
