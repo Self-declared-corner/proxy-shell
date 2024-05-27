@@ -5,13 +5,13 @@ import (
 	"os"
 )
 
-func CreateFile(name string) (error, *os.File) {
+func CreateFile(name string) (*os.File, error) {
 	file, err := os.Create(name)
 	if err != nil {
-		return err, file
+		return file, err
 	}
 	if file != nil {
-		return nil, file
+		return file, nil
 	}
-	return errors.New("something went wrong"), nil
+	return nil, errors.New("something went wrong")
 }
