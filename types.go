@@ -35,10 +35,10 @@ type Client struct {
 	Alive       bool
 }
 
-func (request ProxyRequest) RunProxyRequest(w *http.ResponseWriter, r *http.Request, command Cmd, group *fiber.Router) error {
+func (request ProxyRequest) RunProxyRequest(w *http.ResponseWriter, r *http.Request, command Cmd, group *fiber.Router, app *fiber.App) error {
 	request.Command = command
 	if group != nil {
-		err := ServeCommand(*group, request.Command)
+		err := ServeCommand(app, *group, request.Command)
 		if err != nil {
 			return err
 		}
