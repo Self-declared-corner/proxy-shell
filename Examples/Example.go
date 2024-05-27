@@ -18,15 +18,6 @@ func GetIP() (*net.IP, error) {
 	addr := conn.LocalAddr().(*net.UDPAddr)
 	return &addr.IP, nil
 }
-
-func InitLogs() (*zerolog.Logger, error) {
-	err, file := proxyshell.CreateFile("ps.log")
-	if err != nil {
-		return nil, err
-	}
-	err, logger := proxyshell.CreateLog(file) //here you can choose to print logs into a file, or in the console
-	return logger, err
-}
 func CreateConfig(name string) error {
 	addr, _ := GetIP()
 	config := proxyshell.Config{LocalURL: addr.String(), Version: "1"}
