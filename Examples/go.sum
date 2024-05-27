@@ -1,3 +1,5 @@
+github.com/Self-declared-corner/proxy-shell v0.0.0-20240527060817-8d613fd99315 h1:3s+AsMpgIS6ErMeac3Nuwib/STa5tEOK+bTtLavno6c=
+github.com/Self-declared-corner/proxy-shell v0.0.0-20240527060817-8d613fd99315/go.mod h1:f84i52ILTbHJF5dVtG96vQyDIPTSL3XDvTvOS/HAbi8=
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
@@ -22,8 +24,6 @@ github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJ
 github.com/rs/xid v1.5.0/go.mod h1:trrq9SKmegXys3aeAKXMUTdJsYXVwGY3RLcfgqegfbg=
 github.com/rs/zerolog v1.33.0 h1:1cU2KZkvPxNyfgEmhHAz/1A9Bz+llsdYzklWFzgp0r8=
 github.com/rs/zerolog v1.33.0/go.mod h1:/7mN4D5sKwJLZQ2b/znpjC3/GQWY/xaDXUM0kKWRHss=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240524123819-8b60c38d841a h1:HWAZSQwx25t7Q6LvtOfpjq0EI+kmTtSLKWYd03VtQEc=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240524123819-8b60c38d841a/go.mod h1:obDrzZ5JlzSY14qdm6d+E1cHk0xGzYyAgCN2KDSIDdM=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasthttp v1.51.0 h1:8b30A5JlZ6C7AS81RsWjYMQmrZG6feChmgAolCl1SqA=

@@ -3,6 +3,7 @@ module github.com/self-declared-corner/proxy-shell/Examples
 go 1.22.2
 
 require (
+	github.com/Self-declared-corner/proxy-shell v0.0.0-20240527060817-8d613fd99315 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/gofiber/fiber/v2 v2.52.4 // indirect
 	github.com/google/uuid v1.5.0 // indirect
@@ -12,7 +13,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rs/zerolog v1.33.0 // indirect
-	github.com/self-declared-corner/proxy-shell v0.0.0-20240524123819-8b60c38d841a // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
