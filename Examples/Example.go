@@ -51,7 +51,7 @@ func main() {
 	args := os.Args[2:]
 	group := app.Group("/ps")
 	commands := strings.Join(args, " ")
-	err = proxyshell.ServeCommand(group, proxyshell.Cmd(commands))
+	err = proxyshell.ServeCommand(app, group, proxyshell.Cmd(commands))
 	if err != nil {
 		request := proxyshell.LogRequest{Message: "couldn't serve a command", Level: zerolog.ErrorLevel, BoolName: "isBad", BoolValue: true}
 		dir, _ := os.Getwd()
