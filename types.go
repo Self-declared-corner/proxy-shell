@@ -14,8 +14,9 @@ import (
 type Cmd string
 
 type Config struct {
-	LocalURL string `json:"localURL"`
-	Version  string `json:"version"`
+	LocalURL  string `json:"localURL"`
+	RemoteURL string `json:"remoteURL"`
+	Version   string `json:"version"`
 }
 type ProxyRequest struct {
 	Command Cmd
@@ -34,7 +35,7 @@ type Client struct {
 	Alive       bool
 }
 
-func (request ProxyRequest) RunProxyRequest(w *http.ResponseWriter, r *http.Request, command Cmd, group *fiber.Group) error {
+func (request ProxyRequest) RunProxyRequest(w *http.ResponseWriter, r *http.Request, command Cmd, group *fiber.Router) error {
 	request.Command = command
 	if group != nil {
 		err := ServeCommand(*group, request.Command)
