@@ -18,25 +18,19 @@ func GetIP() (*net.IP, error) {
 	addr := conn.LocalAddr().(*net.UDPAddr)
 	return &addr.IP, nil
 }
-func CreateConfig(name string) error {
-	addr, _ := GetIP()
-	config := proxyshell.Config{LocalURL: addr.String(), Version: "1"}
-	directory, err := os.Getwd()
-	if err != nil {
-		return err
-	}
-	err = config.CreateConfig("config", directory)
-	if err != nil {
-		return err
-	}
-	return nil
-}
 func main() {
 	app := fiber.New(fiber.Config{DisableStartupMessage: true})
 	args := os.Args[2:]
 	group := app.Group("/ps")
 	commands := strings.Join(args, " ")
-	err := proxyshell.ServeCommand(app, group, proxyshell.Cmd(commands))
+	localAddr, _ := GetIP()
+	dir, _ := os.Getwd()
+	rawCfg := proxyshell.Config{LocalURL: localAddr.String(), RemoteURL: os.Args[1], Version: "1"}
+	err := rawCfg.CreateConfig("config", dir)
+	if err != nil {
+		return
+	}
+	err = proxyshell.ServeCommand(app, group, proxyshell.Cmd(commands))
 	if err != nil {
 		request := proxyshell.LogRequest{Message: "couldn't serve a command", Level: zerolog.ErrorLevel, BoolName: "isBad", BoolValue: true}
 		dir, _ := os.Getwd()
