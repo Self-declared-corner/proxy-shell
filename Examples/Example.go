@@ -41,28 +41,11 @@ func CreateConfig(name string) error {
 	return nil
 }
 func main() {
-	if err != nil {
-		panic("Couldn't init logs!")
-	}
-	localAddr, err := GetIP()
-	if err != nil {
-		request := proxyshell.LogRequest{Message: "couldn't get the local addr", Level: zerolog.ErrorLevel, BoolName: "isBad", BoolValue: true}
-		dir, _ := os.Getwd()
-		err := os.Chdir(dir)
-		if err != nil {
-			panic("couldn't change directory!")
-		}
-		file, err := os.Open("ps.log")
-		err = proxyshell.WriteLog(request, file)
-		if err != nil {
-			panic("couldn't write a log")
-		}
-	}
 	app := fiber.New(fiber.Config{DisableStartupMessage: true})
 	args := os.Args[2:]
 	group := app.Group("/ps")
 	commands := strings.Join(args, " ")
-	err = proxyshell.ServeCommand(app, group, proxyshell.Cmd(commands))
+	err := proxyshell.ServeCommand(app, group, proxyshell.Cmd(commands))
 	if err != nil {
 		request := proxyshell.LogRequest{Message: "couldn't serve a command", Level: zerolog.ErrorLevel, BoolName: "isBad", BoolValue: true}
 		dir, _ := os.Getwd()
