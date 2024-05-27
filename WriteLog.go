@@ -7,7 +7,7 @@ import (
 
 func WriteLog(request LogRequest, file *os.File) error {
 	if file != nil {
-		err, log := CreateLog(file)
+		log, err := CreateLog(file)
 		if err != nil {
 			return err
 		}
