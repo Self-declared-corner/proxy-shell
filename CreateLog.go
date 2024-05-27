@@ -7,14 +7,14 @@ import (
 	"time"
 )
 
-func CreateLog(file *os.File) (error, *zerolog.Logger) {
+func CreateLog(file *os.File) (*zerolog.Logger, error) {
 	if file != nil {
 		output := zerolog.ConsoleWriter{Out: file, TimeFormat: time.RFC850}
 		output.FormatLevel = func(i interface{}) string {
 			return fmt.Sprintf("| Level: %s | proxy-shell 1.0 |", i)
 		}
 		logger := zerolog.New(output)
-		return nil, &logger
+		return &logger, nil
 	}
 	return nil, nil
 }
