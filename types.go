@@ -1,17 +1,21 @@
 package proxy_shell
 
 import (
+	"encoding/json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"os"
 	"sync"
 )
 
 type Cmd string
-type CmdJSON struct {
-	command string
+
+type Config struct {
+	LocalURL string `json:"localURL"`
+	Version  string `json:"version"`
 }
 type ProxyRequest struct {
 	Command Cmd
@@ -41,6 +45,18 @@ func (request ProxyRequest) RunProxyRequest(w *http.ResponseWriter, r *http.Requ
 	if w != nil && r != nil {
 		proxy := httputil.NewSingleHostReverseProxy(&request.SendTo)
 		proxy.ServeHTTP(*w, r)
+	}
+	return nil
+}
+func (rawCfg Config) CreateConfig(name string, dir string) error {
+	err := os.Chdir(dir)
+	if err != nil {
+		return err
+	}
+	data, err := json.Marshal(rawCfg)
+	err = os.WriteFile(name+".psCfg", data, 0666)
+	if err != nil {
+		return err
 	}
 	return nil
 }
