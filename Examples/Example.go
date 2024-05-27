@@ -20,16 +20,24 @@ func GetIP() (*net.IP, error) {
 }
 
 func InitLogs() (*zerolog.Logger, error) {
-	file, err := proxyshell.CreateFile("ps.log")
+	err, file := proxyshell.CreateFile("ps.log")
 	if err != nil {
 		return nil, err
 	}
-	logger, err = proxyshell.CreateLog(file) //here you can choose to print logs into a file, or in the console
+	err, logger := proxyshell.CreateLog(file) //here you can choose to print logs into a file, or in the console
 	return logger, err
 }
-
+func CreateConfig(name string) (*os.File, error) {
+	file, err := os.Create(name + ".psCfg")
+	if err != nil {
+		return nil, err
+	}
+	addr, _ := GetIP()
+	config := proxyshell.Config{LocalURL: addr.String(), Version: "1"}
+	return
+}
 func main() {
-	logs, err := InitLogs()
+	_, err := InitLogs()
 	if err != nil {
 		panic("Couldn't init logs!")
 	}
