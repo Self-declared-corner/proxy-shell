@@ -1,4 +1,4 @@
-package proxy_shell
+package latest
 
 type Cmd string
 
