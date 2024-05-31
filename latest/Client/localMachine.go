@@ -9,14 +9,15 @@ import (
 	"github.com/self-declared-corner/proxy-shell/latest/Server"
 	"net"
 	"net/url"
+	"os"
 )
 
 type LocalMachine struct {
-	URL    url.URL     //client's url
-	Stdin  interface{} // stdin stream
-	Stdout interface{} //stdout stream
-	Stderr interface{} // stderr stream
-	OS     string      //linux, windows, macos (darwin)
+	URL    url.URL  //client's url
+	Stdin  *os.File // stdin stream
+	Stdout *os.File //stdout stream
+	Stderr *os.File // stderr stream
+	OS     string   //linux, windows, macos (darwin)
 }
 
 func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
