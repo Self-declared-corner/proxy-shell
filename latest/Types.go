@@ -1,3 +1,5 @@
+// 2024 The Corner. This software is using GPL-3.0 licence. Licence can be found in the LICENCE file.
+
 package latest
 
 type Cmd string
