@@ -1,10 +1,9 @@
-module github.com/Self-declared-corner/proxy-shell
+module github.com/self-declared-corner/proxy-shell
 
 go 1.22.2
 
 require (
 	github.com/gofiber/fiber/v2 v2.52.4
-	github.com/rs/zerolog v1.33.0
 )
 
 require (
