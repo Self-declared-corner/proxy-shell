@@ -1,10 +1,12 @@
+// 2024 The Corner. This software is using GPL-3.0 licence. Licence can be found in the LICENCE file.
+
 package Client
 
 import (
 	"fmt"
-	proxyshell "github.com/Self-declared-corner/proxy-shell"
-	"github.com/Self-declared-corner/proxy-shell/Server"
 	"github.com/fasthttp/websocket"
+	proxyshell "github.com/self-declared-corner/proxy-shell/latest"
+	"github.com/self-declared-corner/proxy-shell/latest/Server"
 	"net"
 	"net/url"
 )
