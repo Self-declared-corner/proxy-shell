@@ -5,7 +5,7 @@ package Server
 import (
 	"github.com/gofiber/contrib/websocket"
 	"github.com/gofiber/fiber/v2"
-	proxyshell "github.com/self-declared-corner/proxy-shell/latest"
+	proxyshell "github.com/self-declared-corner/proxy-shell"
 	"net/http"
 	"net/url"
 	"time"

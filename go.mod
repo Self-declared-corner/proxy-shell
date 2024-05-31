@@ -1,4 +1,4 @@
-module github.com/self-declared-corner/proxy-shell/latest
+module github.com/self-declared-corner/proxy-shell
 
 go 1.22.2
 

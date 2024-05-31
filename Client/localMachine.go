@@ -5,8 +5,8 @@ package Client
 import (
 	"fmt"
 	"github.com/fasthttp/websocket"
-	proxyshell "github.com/self-declared-corner/proxy-shell/latest"
-	"github.com/self-declared-corner/proxy-shell/latest/Server"
+	proxyshell "github.com/self-declared-corner/proxy-shell"
+	"github.com/self-declared-corner/proxy-shell/Server"
 	"net"
 	"net/url"
 	"os"
