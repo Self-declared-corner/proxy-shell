@@ -1,4 +1,4 @@
-// 2024 The Corner. This source code is using GPL-3.0 licence. Licence can be found in the LICENCE file.
+// 2024 The Corner. This software is using GPL-3.0 licence. Licence can be found in the LICENCE file.
 
 package latest
 
