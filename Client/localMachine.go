@@ -3,8 +3,8 @@
 package Client
 
 import (
-	"fmt"
 	"github.com/fasthttp/websocket"
+	"github.com/matishsiao/goInfo"
 	proxyshell "github.com/self-declared-corner/proxy-shell"
 	"github.com/self-declared-corner/proxy-shell/Server"
 	"net"
@@ -13,11 +13,11 @@ import (
 )
 
 type LocalMachine struct {
-	URL    url.URL  //client's url
-	Stdin  *os.File // stdin stream
-	Stdout *os.File //stdout stream
-	Stderr *os.File // stderr stream
-	OS     string   //linux, windows, macos (darwin)
+	URL         url.URL  //client's url
+	Stdin       *os.File // stdin stream
+	Stdout      *os.File //stdout stream
+	Stderr      *os.File // stderr stream
+	Information goInfo.GoInfoObject
 }
 
 func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
@@ -49,6 +49,14 @@ func (lm LocalMachine) SendCommand(command proxyshell.Cmd, rm Server.RemoteMachi
 	return nil
 }
 func (lm LocalMachine) PrintInfo() error {
-	fmt.Println("URL: ", lm.URL, "Operating system: ", lm.OS)
+	lm.Information.VarDump()
+	return nil
+}
+func (lm LocalMachine) CollectInfo() error {
+	gi, err := goInfo.GetInfo()
+	if err != nil {
+		return err
+	}
+	lm.Information = gi
 	return nil
 }
