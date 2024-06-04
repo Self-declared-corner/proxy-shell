@@ -32,12 +32,12 @@ func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
 	lm.URL = *localURL
 	return nil
 }
-func (lm LocalMachine) SendCommand(command proxyshell.Cmd, rm Server.RemoteMachine) (error, interface{}) {
+func (lm LocalMachine) SendCommand(command proxyshell.Cmd, rm Server.RemoteMachine) (interface{}, error) {
 	var result interface{}
 	serverURL := url.URL{Scheme: "ws", Host: rm.URL.String(), Path: "/ws"}
 	conn, _, err := websocket.DefaultDialer.Dial(serverURL.String(), nil)
 	if err != nil {
-		return err, nil
+		return nil, err
 	}
 	go func() {
 		for {
@@ -55,7 +55,7 @@ func (lm LocalMachine) SendCommand(command proxyshell.Cmd, rm Server.RemoteMachi
 			}
 		}
 	}()
-	return nil, result
+	return result, nil
 }
 func (lm LocalMachine) PrintInfo() error {
 	lm.Information.VarDump()
