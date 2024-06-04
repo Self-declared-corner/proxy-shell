@@ -3,13 +3,16 @@ module github.com/self-declared-corner/proxy-shell
 go 1.22.2
 
 require (
+	github.com/fasthttp/websocket v1.5.9
+	github.com/gofiber/contrib/websocket v1.3.1
+	github.com/gofiber/fiber/v2 v2.52.4
+	github.com/matishsiao/goInfo v0.0.0-20210923090445-da2e3fa8d45f
+)
+
+require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
-	github.com/fasthttp/websocket v1.5.9 // indirect
-	github.com/gofiber/contrib/websocket v1.3.1 // indirect
-	github.com/gofiber/fiber/v2 v2.52.4 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/klauspost/compress v1.17.8 // indirect
-	github.com/matishsiao/goInfo v0.0.0-20210923090445-da2e3fa8d45f // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
