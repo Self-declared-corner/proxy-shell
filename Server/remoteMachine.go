@@ -43,12 +43,23 @@ func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*proxyshell.Cmd, erro
 				panic(err)
 			}
 		}(conn)
-		for {
-			err := conn.ReadJSON(command)
-			if err != nil {
-				break
+		go func() {
+			for {
+				err := conn.ReadJSON(command)
+				if err != nil {
+					break
+				}
 			}
+		}()
+		err := proxyshell.ExecCommand(string(command))
+		if err != nil {
+			return
 		}
+		go func() {
+			for {
+				err := conn.WriteJSON()
+			}
+		}()
 	}, websocket.Config{ReadBufferSize: 2048}))
 	return &command, nil
 }
