@@ -15,13 +15,8 @@ github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWE
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/mattn/go-runewidth v0.0.15 h1:UNAjwbU9l54TA3KzvqLGxwWjHmMgBUVhBiTjelZgg3U=
 github.com/mattn/go-runewidth v0.0.15/go.mod h1:Jdepj2loyihRzMpdS35Xk/zdY8IAYHsh153qUoGf23w=
+github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
-github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
-github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240603145641-c627f208d3d0 h1:f9iu7vzNZd/DCwmzY4/RFWPH2XKPJcelwykpvR5jqc0=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240603145641-c627f208d3d0/go.mod h1:15Wmsaw8EGOyn5Ahh5z1A5NXHq++g97bcnDF5MjFr30=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240604193052-23ae179178de h1:Fz+6VKTan35yHn7lor+/LCzTZ1VLc3gP37UjR7t2adY=
-github.com/self-declared-corner/proxy-shell v0.0.0-20240604193052-23ae179178de/go.mod h1:8bq7qXZiuSj9a3Rlw7G0jQZnmIjbs1FnlmGexS3zY3M=
 github.com/self-declared-corner/proxy-shell v0.0.0-20240605063143-0a28746b414e h1:t25x666wBDX58MEJHvMaXG8plF0iC8LQvA6tG6s8abE=
 github.com/self-declared-corner/proxy-shell v0.0.0-20240605063143-0a28746b414e/go.mod h1:BOT2VDdF2VMYo0cMDxnNFBnMxPA5QMqoGAKwcLLOHNM=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
@@ -32,5 +27,5 @@ github.com/valyala/tcplisten v1.0.0 h1:rBHj/Xf+E1tRGZyWIWwJDiRY0zc1Js+CV5DqwacVS
 github.com/valyala/tcplisten v1.0.0/go.mod h1:T0xQ8SeCZGxckz9qRXTfG43PvQ/mcWh7FwZEA7Ioqkc=
 golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.6.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
-golang.org/x/sys v0.21.0 h1:rF+pYz3DAGSQAxAu1CbC7catZg4ebC4UIeIhKxBZvws=
-golang.org/x/sys v0.21.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+golang.org/x/sys v0.20.0 h1:Od9JTbYCk261bKm4M/mw7AklTlFYIa0bIp9BgSm1S8Y=
+golang.org/x/sys v0.20.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
