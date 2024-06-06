@@ -66,7 +66,7 @@ func (rm RemoteMachine) ListenForCommands() (*Cmd, error) {
 		}()
 	}, websocket.Config{ReadBufferSize: 2048}))
 	go func() {
-		log.Fatal(app.Listen(":20715"))
+		log.Fatal(app.Listen(":21507"))
 	}()
 	return &command, nil
 }
