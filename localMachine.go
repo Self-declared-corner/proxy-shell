@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/url"
 	"os"
+	"strings"
 )
 
 type LocalMachine struct {
@@ -23,8 +24,8 @@ func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
 	if err != nil {
 		return err
 	}
-	localAddr := net.ParseIP(conn.LocalAddr().(*net.UDPAddr).String())
-	lm.IP = localAddr
+	localAddr := strings.Split(conn.LocalAddr().(*net.UDPAddr).String(), ":")
+	lm.IP = net.IP(localAddr[1])
 	return nil
 }
 func (lm LocalMachine) SendCommand(command Cmd, rm RemoteMachine) (interface{}, error) {
