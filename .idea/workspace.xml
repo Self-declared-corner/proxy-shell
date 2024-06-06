@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6795e8-280d-481d-a0de-990621c8b0d3" name="Changes" comment="Delete CreateFile.go CreateLog.go">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/Example/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/Example/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/localMachine.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/remoteMachine.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,7 @@
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
