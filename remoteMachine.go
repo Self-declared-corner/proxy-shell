@@ -26,7 +26,7 @@ func (rm RemoteMachine) IsAlive(duration time.Duration) error {
 	}()
 	return nil
 }
-func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*Cmd, error) {
+func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*fiber.App, *Cmd, error) {
 	var command Cmd
 	app.Use("/ws", func(c *fiber.Ctx) error {
 		if websocket.IsWebSocketUpgrade(c) {
