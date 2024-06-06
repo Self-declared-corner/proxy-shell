@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6795e8-280d-481d-a0de-990621c8b0d3" name="Changes" comment="Delete CreateFile.go CreateLog.go">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/Example/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/Example/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
