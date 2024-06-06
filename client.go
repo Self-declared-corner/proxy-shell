@@ -23,7 +23,7 @@ func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
 	if err != nil {
 		return err
 	}
-	localURL, err := url.Parse(conn.LocalAddr().String())
+	localURL, err := url.Parse(conn.LocalAddr().(*net.UDPAddr).String())
 	if err != nil {
 		return err
 	}
