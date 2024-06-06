@@ -1,6 +1,6 @@
 module github.com/self-declared-corner/proxy-shell
 
-go 1.22.2
+go 1.22.3
 
 require (
 	github.com/creack/pty v1.1.21
