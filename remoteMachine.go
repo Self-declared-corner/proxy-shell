@@ -6,13 +6,13 @@ import (
 	"github.com/gofiber/contrib/websocket"
 	"github.com/gofiber/fiber/v2"
 	"log"
+	"net"
 	"net/http"
-	"net/url"
 	"time"
 )
 
 type RemoteMachine struct {
-	URL   url.URL
+	IP    net.IP
 	Alive bool
 }
 
@@ -20,7 +20,7 @@ func (rm RemoteMachine) IsAlive(duration time.Duration) error {
 	tick := time.Tick(duration)
 	go func() {
 		for range tick {
-			if resp, err := http.Get(rm.URL.String()); err != nil || resp.StatusCode >= 500 {
+			if resp, err := http.Get(rm.IP.String()); err != nil || resp.StatusCode >= 500 {
 				rm.Alive = false
 			}
 		}
