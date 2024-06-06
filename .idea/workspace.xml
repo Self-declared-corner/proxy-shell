@@ -9,10 +9,8 @@
       <change beforePath="$PROJECT_DIR$/Example/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Example/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/Example/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Execute.go" beforeDir="false" afterPath="$PROJECT_DIR$/execute.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Types.go" beforeDir="false" afterPath="$PROJECT_DIR$/types.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localMachine.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remoteMachine.go" beforeDir="false" afterPath="$PROJECT_DIR$/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
