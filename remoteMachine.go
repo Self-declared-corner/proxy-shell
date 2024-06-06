@@ -54,11 +54,11 @@ func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*Cmd, error) {
 		if err != nil {
 			return
 		}
-		go func() {
+		defer func() {
 			for {
 				err := conn.WriteJSON(result)
 				if err != nil {
-					return
+					break
 				}
 			}
 		}()
