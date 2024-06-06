@@ -3,70 +3,67 @@
 package proxy_shell
 
 import (
-	"github.com/gofiber/contrib/websocket"
-	"github.com/gofiber/fiber/v2"
-	"log"
-	"net/http"
+	"github.com/fasthttp/websocket"
+	"github.com/matishsiao/goInfo"
+	"net"
 	"net/url"
-	"time"
+	"os"
 )
 
-type RemoteMachine struct {
-	URL   url.URL
-	Alive bool
+type LocalMachine struct {
+	URL         url.URL  //client's url
+	Stdin       *os.File // stdin stream
+	Stdout      *os.File //stdout stream
+	Stderr      *os.File // stderr stream
+	Information goInfo.GoInfoObject
 }
 
-func (rm RemoteMachine) IsAlive(duration time.Duration) error {
-	tick := time.Tick(duration)
-	go func() {
-		for range tick {
-			if resp, err := http.Get(rm.URL.String()); err != nil || resp.StatusCode >= 500 {
-				rm.Alive = false
-			}
-		}
-	}()
+func (lm LocalMachine) GetLocalAddr() error { //gets local machine's address
+	conn, err := net.Dial("udp", "example.com:80")
+	if err != nil {
+		return err
+	}
+	localURL, err := url.Parse(conn.LocalAddr().String())
+	if err != nil {
+		return err
+	}
+	lm.URL = *localURL
 	return nil
 }
-func (rm RemoteMachine) ListenForCommands() (*Cmd, error) {
-	app := fiber.New(fiber.Config{DisableStartupMessage: true})
-	var command Cmd
-	app.Use("/ws", func(c *fiber.Ctx) error {
-		if websocket.IsWebSocketUpgrade(c) {
-			c.Locals("allowed", true)
-			return c.Next()
-		}
-		return fiber.ErrUpgradeRequired
-	})
-	app.Post("/ws/:cmd", websocket.New(func(conn *websocket.Conn) {
-		defer func(conn *websocket.Conn) {
-			err := conn.Close()
-			if err != nil {
-				panic(err)
-			}
-		}(conn)
-		go func() {
-			for {
-				err := conn.ReadJSON(command)
-				if err != nil {
-					break
-				}
-			}
-		}()
-		result, err := ExecCommand(string(command))
-		if err != nil {
-			return
-		}
-		defer func() {
-			for {
-				err := conn.WriteJSON(result)
-				if err != nil {
-					break
-				}
-			}
-		}()
-	}, websocket.Config{ReadBufferSize: 2048}))
+func (lm LocalMachine) SendCommand(command Cmd, rm RemoteMachine) (interface{}, error) {
+	var result interface{}
+	serverURL := url.URL{Scheme: "ws", Host: rm.URL.String(), Path: "/ws"}
+	conn, _, err := websocket.DefaultDialer.Dial(serverURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 	go func() {
-		log.Fatal(app.Listen(":20715"))
+		for {
+			err := conn.WriteJSON(command)
+			if err != nil {
+				return
+			}
+		}
 	}()
-	return &command, nil
+	go func() {
+		for {
+			err := conn.ReadJSON(result)
+			if err != nil {
+				return
+			}
+		}
+	}()
+	return result, nil
+}
+func (lm LocalMachine) PrintInfo() error {
+	lm.Information.VarDump()
+	return nil
+}
+func (lm LocalMachine) CollectInfo() error {
+	gi, err := goInfo.GetInfo()
+	if err != nil {
+		return err
+	}
+	lm.Information = gi
+	return nil
 }
