@@ -5,6 +5,7 @@ package proxy_shell
 import (
 	"github.com/gofiber/contrib/websocket"
 	"github.com/gofiber/fiber/v2"
+	"log"
 	"net/http"
 	"net/url"
 	"time"
@@ -26,7 +27,8 @@ func (rm RemoteMachine) IsAlive(duration time.Duration) error {
 	}()
 	return nil
 }
-func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*fiber.App, *Cmd, error) {
+func (rm RemoteMachine) ListenForCommands() (*Cmd, error) {
+	app := fiber.New(fiber.Config{DisableStartupMessage: true})
 	var command Cmd
 	app.Use("/ws", func(c *fiber.Ctx) error {
 		if websocket.IsWebSocketUpgrade(c) {
@@ -63,5 +65,8 @@ func (rm RemoteMachine) ListenForCommands(app *fiber.App) (*fiber.App, *Cmd, err
 			}
 		}()
 	}, websocket.Config{ReadBufferSize: 2048}))
+	go func() {
+		log.Fatal(app.Listen(":20715"))
+	}()
 	return &command, nil
 }
