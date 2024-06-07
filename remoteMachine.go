@@ -37,7 +37,7 @@ func (rm RemoteMachine) ListenForCommands() (*Cmd, error) {
 		}
 		return fiber.ErrUpgradeRequired
 	})
-	app.Post("/ws/:cmd", websocket.New(func(conn *websocket.Conn) {
+	app.Post("/ws", websocket.New(func(conn *websocket.Conn) {
 		defer func(conn *websocket.Conn) {
 			err := conn.Close()
 			if err != nil {
